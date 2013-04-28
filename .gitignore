@@ -1,0 +1,8 @@
+*.py[co]
+build
+dropin.cache
+*.sw[po]
+.venv
+*.log
+.bzr
+*.egg-info
