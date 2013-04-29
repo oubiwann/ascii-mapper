@@ -162,7 +162,7 @@ v
 
 ravine = r"""%s
 -V-v
-v-V- Ravine
+v-V-
 V-
 v
 %s
