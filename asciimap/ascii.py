@@ -6,10 +6,10 @@ blue = '\033[94m'
 magenta = '\033[95m'
 cyan = '\033[96m'
 white = '\033[97m'
-end_color = '\033[0m'
+endColor = '\033[0m'
 
 
-test_terrain = r"""%s
+testTerrain = r"""%s
 1234
 abcd
 56
@@ -24,7 +24,7 @@ plains = r"""%s
 --
 -
 %s
-""" % (yellow, end_color)
+""" % (yellow, endColor)
 
 
 savanna = r"""%s
@@ -33,7 +33,7 @@ savanna = r"""%s
 -+
 -
 %s
-""" % (yellow, end_color)
+""" % (yellow, endColor)
 
 
 woodlands = r"""%s
@@ -42,7 +42,7 @@ woodlands = r"""%s
 +-
 +
 %s
-""" % (green, end_color)
+""" % (green, endColor)
 
 
 forest = r"""%s
@@ -51,7 +51,7 @@ forest = r"""%s
 ++
 +
 %s
-""" % (green, end_color)
+""" % (green, endColor)
 
 
 jungle = r"""%s
@@ -60,32 +60,32 @@ $+&+
 &+
 &
 %s
-""" % (green, end_color)
+""" % (green, endColor)
 
 
-sandy_ground = r"""%s
+sandyGround = r"""%s
 ....
 ....
 ..
 .
 %s
-""" % (yellow, end_color)
+""" % (yellow, endColor)
 
 
-desert = sandy_ground
-beach = sandy_ground
+desert = sandyGround
+beach = sandyGround
 
 
-rocky_ground = r"""%s
+rockyGround = r"""%s
 ,.,.
 .,.,
 ,.
 ,
 %s
-""" % (grey, end_color)
+""" % (grey, endColor)
 
 
-shoreline = rocky_ground
+shoreline = rockyGround
 
 
 hills = r"""%s
@@ -94,7 +94,7 @@ _^_^
 ^_
 ^
 %s
-""" % (red, end_color)
+""" % (red, endColor)
 
 
 cliffs = r"""%s
@@ -103,7 +103,7 @@ cliffs = r"""%s
 |,
 |
 %s
-""" % (red, end_color)
+""" % (red, endColor)
 
 
 caves = r"""%s
@@ -112,7 +112,7 @@ _O_O
 _O
 o
 %s
-""" % (red, end_color)
+""" % (red, endColor)
 
 
 mountains = r"""%s
@@ -121,34 +121,34 @@ mountains = r"""%s
 ^^
 ^
 %s
-""" % (red, end_color)
+""" % (red, endColor)
 
 
-alpine_treeline = r"""%s
+alpineTreeline = r"""%s
 ^+^+
 +^+^
 ^+
 ^
 %s
-""" % (red, end_color)
+""" % (red, endColor)
 
 
-high_peaks = r"""%s
+highPeaks = r"""%s
 /\**
 **/\
 ^*
 ^
 %s
-""" % (white, end_color)
+""" % (white, endColor)
 
 
-high_plateau = r"""%s
+highPlateau = r"""%s
 /\__
 __/\
 ^_
 ^
 %s
-""" % (red, end_color)
+""" % (red, endColor)
 
 
 valley = r"""%s
@@ -157,7 +157,7 @@ valley = r"""%s
 V-
 v
 %s
-""" % (green, end_color)
+""" % (green, endColor)
 
 
 ravine = r"""%s
@@ -166,7 +166,7 @@ v-V- Ravine
 V-
 v
 %s
-""" % (red, end_color)
+""" % (red, endColor)
 
 
 canyon = r"""%s
@@ -175,7 +175,7 @@ _  _
 VV
 V
 %s
-""" % (red, end_color)
+""" % (red, endColor)
 
 
 buttes = r"""%s
@@ -184,7 +184,7 @@ n...
 n.
 n
 %s
-""" % (red, end_color)
+""" % (red, endColor)
 
 
 tundra = r"""%s
@@ -193,7 +193,7 @@ tundra = r"""%s
 .*
 *
 %s
-""" % (white, end_color)
+""" % (white, endColor)
 
 
 stream = r"""%s
@@ -202,7 +202,7 @@ s~S~
 ~s
 ~
 %s
-""" % (cyan, end_color)
+""" % (cyan, endColor)
 
 
 river = r"""%s
@@ -211,7 +211,7 @@ river = r"""%s
 ~S
 ~
 %s
-""" % (cyan, end_color)
+""" % (cyan, endColor)
 
 
 lake = r"""%s
@@ -220,7 +220,7 @@ lake = r"""%s
 ~.
 ~
 %s
-""" % (blue, end_color)
+""" % (blue, endColor)
 
 
 ocean = r"""%s
@@ -229,7 +229,7 @@ ocean = r"""%s
 ~~
 ~
 %s
-""" % (blue, end_color)
+""" % (blue, endColor)
 
 
 """
