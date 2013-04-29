@@ -1,8 +1,8 @@
 import unittest
 
-from myriad import util
-from myriad.const import N, S, E, W, NE, NW, SE, SW, C
-from myriad.world import map
+from asciimap import util
+from asciimap.const import N, S, E, W, NE, NW, SE, SW, C
+from asciimap.world import map
 
 
 class ASCIICharacterMapTestCase(unittest.TestCase):

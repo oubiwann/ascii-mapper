@@ -1,7 +1,6 @@
 from setuptools import setup, find_packages
 
-from myriad import meta
-from myriad.util import dist
+from asciimap import meta
 
 
 setup(
@@ -13,13 +12,7 @@ setup(
     author_email=meta.author_email,
     url=meta.url,
     license=meta.license,
-    packages=find_packages() + ["twisted.plugins"],
-    package_data={
-        "twisted": ['plugins/example_server.py']
-        },
+    packages=find_packages(),
     install_requires=meta.requires,
     zip_safe=False
     )
-
-
-dist.refresh_plugin_cache()

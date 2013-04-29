@@ -1,6 +1,6 @@
 import unittest
 
-from myriad import util
+from asciimap import util
 
 
 class UtilTestCase(unittest.TestCase):

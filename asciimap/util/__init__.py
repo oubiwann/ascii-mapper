@@ -2,7 +2,7 @@ import random, signal, sys
 
 from carapace.sdk import interfaces, registry
 
-from myriad import const
+from asciimap import const
 
 
 def aOrAn(item):

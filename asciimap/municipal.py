@@ -1,4 +1,4 @@
-from myriad.world.base import Tile
+from asciimap.world.base import Tile
 
 
 class Town(Tile):

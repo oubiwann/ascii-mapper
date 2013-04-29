@@ -1,7 +1,7 @@
 import inspect
 import random
 
-from myriad.world.base import Tile
+from asciimap.world.base import Tile
 
 
 class GeographicalFeature(Tile):
@@ -248,7 +248,7 @@ transforms ={}
 
 
 def getTileClasses():
-    from myriad.world import terrain
+    from asciimap import terrain
     classes = inspect.getmembers(terrain, inspect.isclass)
     terrainClasses = [klass for name, klass in classes
         if issubclass(klass, terrain.Terrain)

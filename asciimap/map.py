@@ -3,9 +3,9 @@ import random
 
 from pyparsing import srange
 
-from myriad import util
-from myriad.const import N, S, E, W, NE, SE, SW, NW, C, U, D
-from myriad.world import terrain
+from asciimap import util
+from asciimap.const import N, S, E, W, NE, SE, SW, NW, C, U, D
+from asciimap.world import terrain
 
 
 # XXX we need to get rid of this; the directions are being pulled from
@@ -76,7 +76,7 @@ class ASCIICharacterMap(object):
         """
         # XXX if we have to import these here to avoid circularity, then maybe
         # the classes have been placed in the wrong location. Look into this.
-        from myriad.world.municipal import Exit, Room
+        from asciimap.world.municipal import Exit, Room
         # If there is no new line at the beginning of the ASCII map, the
         # parseing will not be successful. Let's make sure there is.
         map.lstrip()

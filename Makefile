@@ -4,43 +4,20 @@ PYBIN = Python
 else
 PYBIN = python
 endif
-PROJ := myriad-worlds
+PROJ := ascii-mapper
 GITHUB_REPO := github.com:oubiwann/$(PROJ).git
 LP_REPO := lp:$(PROJ)
 AUTHOR ?= oubiwann
 MSG_FILE ?= MSG
-LIB := myriad
+LIB := asciimap
 VENV ?= .venv
 ACT ?= $(VENV)/bin/activate
 
 $(VENV):
 	virtualenv $(VENV)
 
-deps:
-	. $(ACT) && pip install carapace
-	. $(ACT) && pip install PyParsing==1.5.7
-	. $(ACT) && pip install PyYAML
-
 version:
 	. $(ACT) && python $(LIB)/scripts/getVersion.py
-
-keygen:
-	@python -c "from myriad import game;from carapace.sdk import scripts;scripts.KeyGen()"
-
-run: $(VENV) deps
-	. $(ACT) && twistd -n myriad
-
-daemon: $(VENV) deps
-	. $(ACT) && twistd myriad
-
-shell: $(VENV)
-	@. $(ACT) && python -c "from myriad import game;from carapace.sdk import scripts;scripts.ConnectToShell()"
-
-stop:
-	@. $(ACT) && python -c "from myriad import game;from carapace.sdk import scripts;scripts.StopDaemon()"
-
-run-test:
-	make daemon && make shell && make stop
 
 clean:
 	find ./ -name "*~" -exec rm {} \;
@@ -117,7 +94,7 @@ check-dist:
 
 check: MOD ?= $(LIB)
 check: build
-	clear && . $(ACT) && PYTHONPATH=. python myriad/testing/runner.py $(MOD)
+	clear && . $(ACT) && PYTHONPATH=. python asciimap/testing/runner.py $(MOD)
 
 check-testcase-names:
 	@echo "Checking for (possibly) badly named test cases..."

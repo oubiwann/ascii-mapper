@@ -1,6 +1,6 @@
 import unittest
 
-from myriad.world import terrain
+from asciimap.world import terrain
 
 
 class TerrainUtilTestCase(unittest.TestCase):
