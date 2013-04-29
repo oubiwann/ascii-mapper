@@ -2,7 +2,7 @@ import unittest
 
 from asciimap import util
 from asciimap.const import N, S, E, W, NE, NW, SE, SW, C
-from asciimap.world import map
+from asciimap import map
 
 
 class ASCIICharacterMapTestCase(unittest.TestCase):

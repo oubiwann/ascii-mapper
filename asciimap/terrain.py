@@ -1,21 +1,10 @@
 import inspect
 import random
 
-from asciimap.world.base import Tile
 
-
-class GeographicalFeature(Tile):
-    desc = ""
+class GeographicalFeature(object):
     allowedTransitions = []
-    allowedTransforms = {
-        "increased temperature": [],
-        "decreased temperature": [],
-        }
-    canHaveTown = True
-    isPassable = True
-    # human adult walking speed of 5 km/hr (83 m/min on flat, unencumbered
-    # ground is taken as the unit speed.
-    traversalMultiplier = 1.0
+    pervasiveness = 0.5
 
 
 class Terrain(GeographicalFeature):
@@ -23,163 +12,157 @@ class Terrain(GeographicalFeature):
 
 
 class WaterBody(GeographicalFeature):
-    canHaveTown = False
-    # comparing 5 km/hr (83 m/min) average walking time to average, casual
-    # swimming speed of 3 km/hr (50 m/min)
-    traversalMultiplier = 0.6
+    pass
 
 
 class Plains(Terrain):
-    desc = "You are surrounded by grassy plains."
+    "You are surrounded by grassy plains."
     pervasiveness = 0.8
 
 
 class Savanna(Plains):
-    desc = ("You are surrounded by grassland mixed with undergrowth and "
-            "occasional trees.")
+    """
+    You are surrounded by grassland mixed with undergrowth and occasional
+    trees.
+    """
 
 
 class Woodlands(Savanna):
-    desc = "You are in an area of scattered woods and occasional clearings."
-    traversalMultiplier = 0.6
+    "You are in an area of scattered woods and occasional clearings."
 
 
 class Forest(Woodlands):
-    desc = "You are surrounded by trees."
-    traversalMultiplier = 0.4
+    "You are surrounded by trees."
 
 
 class Jungle(Forest):
-    desc = "Wild vegetation lays before you, daunting in its thickness."
-    traversalMultiplier = 0.1
+    "Wild vegetation lays before you, daunting in its thickness."
 
 
 class SandyGround(Plains):
-    desc = "You are surrounded by sandy ground."
-    traversalMultiplier = 0.6
+    "You are surrounded by sandy ground."
     pervasiveness = 0.3
 
 
 class RockyGround(Plains):
-    desc = "You are surrounded by rocky ground."
-    traversalMultiplier = 0.8
+    "You are surrounded by rocky ground."
     pervasiveness = 0.3
 
 
 class Hills(RockyGround):
-    desc = "You have entered a hilly area."
-    traversalMultiplier = 0.6
+    "You have entered a hilly area."
     pervasiveness = 0.5
 
 
 class Cliffs(Hills):
-    desc = "You face a wall of stone, a cliff too hight to pass unaided."
-    isPassable = False
+    "You face a wall of stone, a cliff too hight to pass unaided."
     pervasiveness = 0.3
 
 
 class Caves(Hills):
-    desc = "You are in an area with caves in the hills."
-    traversalMultiplier = 0.5
+    "You are in an area with caves in the hills."
     pervasiveness = 0.2
 
 
 class Mountains(Hills):
-    desc = "You are in the mountains"
-    traversalMultiplier = 0.4
+    "You are in the mountains"
     pervasiveness = 0.4
 
 
 class AlpineTreeline(Mountains):
-    desc = ("You are in the mountains, below the treeline. You see the "
-            "occasional Krummholz formation.")
+    """
+    You are in the mountains, below the treeline. You see the occasional
+    Krummholz formation.
+    """
 
 
 class HighPeaks(Mountains):
-    desc = ("The wind is blowing hard, and you have a difficult time "
-            "breathing. You are very high up in the mountains, among "
-            "the highest peaks.")
-    traversalMultiplier = 0.1
-    isPassable = False
+    """
+    The wind is blowing hard, and you have a difficult time breathing. You are
+    very high up in the mountains, among the highest peaks.
+    """
     pervasiveness = 0.2
 
 
 class HighPlateau(Mountains):
-    desc = ("The wind is blowing hard, and you have a difficult time "
-            "breathing. You are very high up in the mountains, on a "
-            "large, moderately flat plateau. It is a forbidding environment.")
-    traversalMultiplier = 0.7
+    """
+    The wind is blowing hard, and you have a difficult time breathing. You are
+    very high up in the mountains, on a large, moderately flat plateau. It is a
+    forbidding environment.
+    """
     pervasiveness = 0.1
 
 
 class Valley(Plains):
-    desc = "Nestled between the slopes, you are standing in a valley."
+    "Nestled between the slopes, you are standing in a valley."
     pervasiveness = 0.3
 
 
 class Ravine(RockyGround):
-    desc = ("You've managed to get yourself into a ravine. Let's see if you "
-            "can get yourself out.")
-    traversalMultiplier = 0.6
-    isPassable = True
+    """
+    You've managed to get yourself into a ravine. Let's see if you can get
+    yourself out.
+    """
     pervasiveness = 0.3
 
 
 class Canyon(Ravine):
-    desc = ("You are now in a canyon. A most unenviable position for a "
-            "traveller to be in.")
-    isPassable = False
+    """
+    You are now in a canyon. A most unenviable position for a traveller to
+    be in.
+    """
     pervasiveness = 0.3
 
 
 class Desert(SandyGround):
-    desc = ("You have entered the desert. You wonder how long your water "
-            "will last if you have to keep this up...")
-    traversalMultiplier = 0.4
-    isPassable = False
+    """
+    You have entered the desert. You wonder how long your water will last if
+    you have to keep this up...
+    """
     pervasiveness = 0.7
 
 
 class Buttes(Desert, Hills):
-    desc = "Several stunning buttes are within view."
+    "Several stunning buttes are within view."
     pervasiveness = 0.1
 
 
 class Tundra(Desert):
-    desc = "As far as you can see in that direction is a frozen wasteland."
+    "As far as you can see in that direction is a frozen wasteland."
 
 
 class Shoreline(RockyGround):
-    desc = ("You are at the water's edge. The rocky shore might be "
-            "uncomfortable in barefeet.")
+    """
+    You are at the water's edge. The rocky shore might be uncomfortable in
+    barefeet.
+    """
     pervasiveness = 0.4
 
 
 class Beach(SandyGround):
-    desc = ("You are on a beach. This would be a lovely place for a vacation. "
-            "If you knew what vacations were.")
+    """
+    You are on a beach. This would be a lovely place for a vacation. If you
+    knew what vacations were.
+    """
     pervasiveness = 0.3
 
 
 class Stream(WaterBody):
-    desc = "You are up to your needs in a stream."
+    "You are up to your needs in a stream."
     pervasiveness = 0.9
 
 
 class River(Stream):
-    desc = "For some reason, you've decided to take a swim in a river."
-    isPassable = False
+    "For some reason, you've decided to take a swim in a river."
 
 
 class Lake(WaterBody):
-    desc = "You are currently in a lake."
-    isPassable = False
+    "You are currently in a lake."
     pervasiveness = 0.8
 
 
 class Ocean(WaterBody):
-    desc = "You have entered the ocean."
-    isPassable = False
+    "You have entered the ocean."
     pervasiveness = 0.9
 
 
@@ -191,7 +174,7 @@ transitions = {
     Woodlands: [Plains, SandyGround, RockyGround, Hills, Valley, Beach,
                 Woodlands, Forest, Jungle],
     Hills: [Plains, SandyGround, RockyGround, Hills, Mountains, Canyon, River,
-           Lake],
+           Lake, Caves],
     Mountains: [Hills, Mountains, HighPlateau, HighPeaks, Valley,
                 AlpineTreeline],
     AlpineTreeline: [Mountains, HighPlateau, HighPeaks],
@@ -205,9 +188,11 @@ transitions = {
            River, Lake],
     Ocean: [Shoreline, River, Beach],
     Shoreline: [Ocean, Lake, River, Stream, Shoreline, Beach],
+    Tundra: [Ocean, HighPeaks, AlpineTreeline],
     }
 
 
+transitions[Caves] = transitions[Hills]
 transitions[Lake] = transitions[Stream]
 transitions[River] = transitions[Stream] + [Beach]
 transitions[SandyGround] = transitions[Plains]

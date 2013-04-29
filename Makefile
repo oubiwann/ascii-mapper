@@ -32,60 +32,14 @@ bzr-2-git:
 	git remote add origin git@github.com:oubiwann/$(PROJ).git
 	git push -u origin master
 
-msg:
-	-@rm $(MSG_FILE)
-	@git diff ChangeLog |egrep -v '^\+\+\+'|egrep '^\+.*'|sed -e 's/^+//' >> $(MSG_FILE)
-.PHONY: msg
-
-commit: msg
-	bzr commit --show-diff --file=$(MSG_FILE)
-	@echo '!!! REMOVE THIS LINE !!!' >> $(TMP_FILE)
-	@cat $(MSG_FILE) >> $(TMP_FILE)
-	@mv $(TMP_FILE) $(MSG_FILE)
-	git commit -a -v -t $(MSG_FILE)
-	mv $(MSG_FILE) $(MSG_FILE).backup
-	touch $(MSG_FILE)
-
-push:
-	git push --all git@$(GITHUB_REPO)
-	bzr push $(LP_REPO)
-
-push-tags:
-	git push --tags git@$(GITHUB_REPO)
-
-push-all: push push-tags
-.PHONY: push-all
-
-commit-push: commit push-all
-.PHONY: commit-push
-
-stat: msg
-	@echo
-	@echo "### Changes ###"
-	@echo
-	-@cat $(MSG_FILE)
-	@echo
-	@echo "### Git working branch status ###"
-	@echo
-	@git status -s
-	@echo
-	@echo "### Git branches ###"
-	@echo
-	@git branch
-	@echo 
-	@echo "### Bzr status ###"
-	@echo
-	@bzr stat
-	@echo
-
-status: stat
-.PHONY: status
-
 todo:
 	git grep -n -i -2 XXX
 .PHONY: todo
 
-build:
+deps:
+	@. $(ACT) && pip install pyparsing==1.5.7
+
+build: $(VENV) deps
 	@. $(ACT) && python setup.py build
 	@. $(ACT) && python setup.py sdist
 

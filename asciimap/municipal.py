@@ -1,4 +1,7 @@
-from asciimap.world.base import Tile
+class Tile(object):
+
+    def __init__(self, *args, **kwargs):
+        pass
 
 
 class Town(Tile):

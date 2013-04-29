@@ -1,6 +1,6 @@
 import unittest
 
-from asciimap.world import terrain
+from asciimap import terrain
 
 
 class TerrainUtilTestCase(unittest.TestCase):

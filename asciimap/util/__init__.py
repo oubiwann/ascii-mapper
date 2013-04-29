@@ -1,7 +1,5 @@
 import random, signal, sys
 
-from carapace.sdk import interfaces, registry
-
 from asciimap import const
 
 
