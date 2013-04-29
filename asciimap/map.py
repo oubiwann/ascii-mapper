@@ -183,7 +183,7 @@ class GeneratedMap(object):
                     x = i.__name__
                 else:
                     x = i
-                print x.ljust(11, " "),
+                print x.ljust(15, " "),
             print
 
     def printASCIITiles(self, size=ascii.large):
