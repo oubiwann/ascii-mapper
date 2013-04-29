@@ -1,6 +1,3 @@
-.. image:: resources/images/myriad-worlds-192.jpg
-    :align: right
-
 ~~~~~~~~~~~~
 ASCII Mapper
 ~~~~~~~~~~~~
@@ -16,7 +13,7 @@ TBD
 Examples
 ========
 
-Jungle and Hills::
+Here is an example of the text names for jungle and hills::
 
     Jungle      Jungle      Jungle      Jungle      Jungle
     Jungle      Jungle      Jungle      Forest      Jungle
@@ -29,8 +26,13 @@ Jungle and Hills::
     Hills       Hills       RockyGround Hills       Jungle
     Hills       Hills       SandyGround Jungle      Hills
 
+And here is the corresponding ASCII rendering in large, medium, and small
+formats:
 
-Desert, Plains, and Oases::
+.. image:: resources/images/jungle_and_hills.png
+
+An example of desert, plains, and oases (and then corresponding ASCII
+rendering)::
 
     Desert          Desert          Canyon          Plains          Plains          Plains          Plains          Plains          Plains          Plains          Plains          Plains          Plains          Plains          Plains
     Desert          Desert          Desert          SandyGround     Plains          Plains          Plains          Jungle          Plains          Plains          Desert          Plains          Plains          Plains          Plains
@@ -38,7 +40,10 @@ Desert, Plains, and Oases::
     Desert          Desert          Plains          Plains          Jungle          SandyGround     Plains          Plains          Plains          Jungle          Plains          Plains          Canyon          Plains          Plains
     Desert          Desert          Desert          Plains          Canyon          Jungle          Plains          Plains          Plains          Plains          Jungle          Plains          Plains          Beach           Plains
 
-A little bit of everything::
+.. image:: resources/images/desert_and_plains.png
+
+An example of a little bit of everything (and then corresponding ASCII
+rendering)::
 
     AlpineTreeline  AlpineTreeline  Mountains       Mountains       Valley          Mountains       Valley          Valley          Plains          Plains          Plains          Lake            Lake            Lake            Lake
     AlpineTreeline  AlpineTreeline  HighPlateau     Mountains       Mountains       AlpineTreeline  Mountains       Hills           RockyGround     Plains          Plains          Plains          Lake            Lake            Lake
@@ -55,6 +60,8 @@ A little bit of everything::
     AlpineTreeline  AlpineTreeline  Mountains       HighPeaks       AlpineTreeline  HighPlateau     Mountains       HighPeaks       HighPeaks       AlpineTreeline  Mountains       Valley          River           Lake            Lake
     Mountains       HighPeaks       AlpineTreeline  Mountains       HighPeaks       Mountains       Valley          AlpineTreeline  HighPeaks       Mountains       Hills           Canyon          River           River           Lake
     HighPeaks       HighPeaks       AlpineTreeline  AlpineTreeline  Mountains       HighPeaks       Mountains       Valley          AlpineTreeline  AlpineTreeline  HighPlateau     Hills           AlpineTreeline  River           River
+
+.. image:: resources/images/bit_of_everything.png
 
 Install
 =======
