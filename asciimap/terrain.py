@@ -1,10 +1,18 @@
 import inspect
 import random
 
+from asciimap import ascii
+
 
 class GeographicalFeature(object):
+
     allowedTransitions = []
     pervasiveness = 0.5
+
+    @classmethod
+    def getASCII(klass):
+        name = klass.__name__
+        return getattr(ascii, name[0].lower() + name[1:])
 
 
 class Terrain(GeographicalFeature):
