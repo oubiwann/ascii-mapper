@@ -3,7 +3,7 @@ import random
 
 from pyparsing import srange
 
-from asciimap import terrain, util
+from asciimap import ascii, terrain, util
 from asciimap.const import N, S, E, W, NE, SE, SW, NW, C, U, D
 
 
@@ -158,7 +158,25 @@ class GeneratedMap(object):
         self.generateTiles()
         self.finishTiles()
 
-    def printTiles(self):
+    def printTiles(self, mode="text", size=ascii.large):
+        """
+        "mode" cane be any of the following:
+          * text
+          * ascii (as in "ascii relief"
+
+        if mode is "ascii", the size arg will be used.
+
+        "size" can be any of the following:
+          * ascii.large
+          * ascii.medium
+          * ascii.small
+        """
+        if mode == "text":
+            self.printNamedTiles()
+        elif mode == "ascii":
+            self.printASCIITiles(size)
+
+    def printNamedTiles(self):
         for j in self.grid:
             for i in j:
                 if hasattr(i, "__name__"):
@@ -167,6 +185,10 @@ class GeneratedMap(object):
                     x = i
                 print x.ljust(11, " "),
             print
+
+    def printASCIITiles(self, size=ascii.large):
+        rows = map(lambda x: map(lambda y: y.getASCII(), x), self.grid)
+        ascii.printTerrainGrid(rows, size=size)
 
     def generateTiles(self):
         # enough tiles to hold 1-2 small towns
@@ -208,8 +230,6 @@ class GeneratedMap(object):
         elif self.size == "planetary":
             pass
         self.grid = grid
-        # XXX debug
-        self.printTiles()
 
     def finishTiles(self):
         """
