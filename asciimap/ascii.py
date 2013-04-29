@@ -8,6 +8,7 @@ cyan = '\033[96m'
 white = '\033[97m'
 end_color = '\033[0m'
 
+
 test_terrain = r"""%s
 1234
 abcd
@@ -15,6 +16,7 @@ abcd
 e
 %s
 """ % ("noop", "noop")
+
 
 plains = r"""%s
 ----
@@ -24,6 +26,7 @@ plains = r"""%s
 %s
 """ % (yellow, end_color)
 
+
 savanna = r"""%s
 -+--
 --+-
@@ -31,6 +34,7 @@ savanna = r"""%s
 -
 %s
 """ % (yellow, end_color)
+
 
 woodlands = r"""%s
 +-++
@@ -40,6 +44,7 @@ woodlands = r"""%s
 %s
 """ % (green, end_color)
 
+
 forest = r"""%s
 ++++
 ++++
@@ -47,6 +52,7 @@ forest = r"""%s
 +
 %s
 """ % (green, end_color)
+
 
 jungle = r"""%s
 $+&+
@@ -56,6 +62,7 @@ $+&+
 %s
 """ % (green, end_color)
 
+
 sandy_ground = r"""%s
 ....
 ....
@@ -64,8 +71,10 @@ sandy_ground = r"""%s
 %s
 """ % (yellow, end_color)
 
+
 desert = sandy_ground
 beach = sandy_ground
+
 
 rocky_ground = r"""%s
 ,.,.
@@ -75,7 +84,9 @@ rocky_ground = r"""%s
 %s
 """ % (grey, end_color)
 
+
 shoreline = rocky_ground
+
 
 hills = r"""%s
 ^_^_
@@ -85,6 +96,7 @@ _^_^
 %s
 """ % (red, end_color)
 
+
 cliffs = r"""%s
 |,,.
 .,,|
@@ -92,6 +104,7 @@ cliffs = r"""%s
 |
 %s
 """ % (red, end_color)
+
 
 caves = r"""%s
 ^_^_
@@ -101,6 +114,7 @@ o
 %s
 """ % (red, end_color)
 
+
 mountains = r"""%s
 ^^^^
 ^^^^
@@ -108,6 +122,7 @@ mountains = r"""%s
 ^
 %s
 """ % (red, end_color)
+
 
 alpine_treeline = r"""%s
 ^+^+
@@ -117,6 +132,7 @@ alpine_treeline = r"""%s
 %s
 """ % (red, end_color)
 
+
 high_peaks = r"""%s
 /\**
 **/\
@@ -124,6 +140,7 @@ high_peaks = r"""%s
 ^
 %s
 """ % (white, end_color)
+
 
 high_plateau = r"""%s
 /\__
@@ -133,6 +150,7 @@ __/\
 %s
 """ % (red, end_color)
 
+
 valley = r"""%s
 \/--
 --\/
@@ -140,6 +158,7 @@ V-
 v
 %s
 """ % (green, end_color)
+
 
 ravine = r"""%s
 -V-v
@@ -149,6 +168,7 @@ v
 %s
 """ % (red, end_color)
 
+
 canyon = r"""%s
 _  _
  \/
@@ -156,6 +176,7 @@ VV
 V
 %s
 """ % (red, end_color)
+
 
 buttes = r"""%s
 ...n
@@ -165,6 +186,7 @@ n
 %s
 """ % (red, end_color)
 
+
 tundra = r"""%s
 *.*.
 .*.*
@@ -172,6 +194,7 @@ tundra = r"""%s
 *
 %s
 """ % (white, end_color)
+
 
 stream = r"""%s
 ~S~s
@@ -181,6 +204,7 @@ s~S~
 %s
 """ % (cyan, end_color)
 
+
 river = r"""%s
 ~{~{
 }~}~
@@ -188,6 +212,7 @@ river = r"""%s
 ~
 %s
 """ % (cyan, end_color)
+
 
 lake = r"""%s
 ~.~.
@@ -197,6 +222,7 @@ lake = r"""%s
 %s
 """ % (blue, end_color)
 
+
 ocean = r"""%s
 ~~~~
 ~~~~
@@ -204,6 +230,7 @@ ocean = r"""%s
 ~
 %s
 """ % (blue, end_color)
+
 
 """
 The following ASCII terrain snippets are either old or haven't been used yet.
@@ -247,7 +274,7 @@ medium = (3, 4)
 small = (4, 5)
 
 
-def get_terrain(name, size=large, color=False):
+def getTerrain(name, size=large, color=False):
     color_start = ""
     color_end = ""
     name_parts = name.splitlines()
@@ -262,31 +289,31 @@ def get_terrain(name, size=large, color=False):
     return terrain
 
 
-def print_terrain(name, size=large, color=True):
-    print "\n".join(get_terrain(name, size, color))
+def printTerrain(name, size=large, color=True):
+    print "\n".join(getTerrain(name, size, color))
 
 
-def get_terrain_row(names, size=large, color=False):
+def getRerrainRow(names, size=large, color=False):
     if size == large:
         result = [
             "".join(map(
-                lambda x: get_terrain(x, large_top, color)[0], names)),
+                lambda x: getTerrain(x, large_top, color)[0], names)),
             "".join(map(
-                lambda x: get_terrain(x, large_bottom, color)[0], names))]
+                lambda x: getTerrain(x, large_bottom, color)[0], names))]
     else:
         result = ["".join(map(
-            lambda x: get_terrain(x, size, color)[0], names))]
+            lambda x: getTerrain(x, size, color)[0], names))]
     return result
 
 
-def print_terrain_row(names, size=large, color=True):
-    print "\n".join(get_terrain_row(names, size, color))
+def printTerrainRow(names, size=large, color=True):
+    print "\n".join(getRerrainRow(names, size, color))
 
 
-def get_terrain_grid(rows, size=large, color=False):
-    return map(lambda x: get_terrain_row(x, size, color), rows)
+def getTerrainGrid(rows, size=large, color=False):
+    return map(lambda x: getRerrainRow(x, size, color), rows)
 
 
-def print_terrain_grid(rows, size=large, color=True):
+def printTerrainGrid(rows, size=large, color=True):
     print "\n".join(
-        map(lambda x: "\n".join(get_terrain_row(x, size, color)), rows))
+        map(lambda x: "\n".join(getRerrainRow(x, size, color)), rows))
