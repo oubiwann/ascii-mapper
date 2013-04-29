@@ -17,6 +17,7 @@ Examples
 ========
 
 Jungle and Hills::
+
     Jungle      Jungle      Jungle      Jungle      Jungle
     Jungle      Jungle      Jungle      Forest      Jungle
     Valley      Jungle      Jungle      Jungle      Forest
@@ -30,6 +31,7 @@ Jungle and Hills::
 
 
 Desert, Plains, and Oases::
+
     Desert          Desert          Canyon          Plains          Plains          Plains          Plains          Plains          Plains          Plains          Plains          Plains          Plains          Plains          Plains
     Desert          Desert          Desert          SandyGround     Plains          Plains          Plains          Jungle          Plains          Plains          Desert          Plains          Plains          Plains          Plains
     Desert          Plains          Plains          Desert          SandyGround     Plains          Plains          Plains          Jungle          Plains          Plains          Desert          Plains          Plains          Plains
@@ -37,6 +39,7 @@ Desert, Plains, and Oases::
     Desert          Desert          Desert          Plains          Canyon          Jungle          Plains          Plains          Plains          Plains          Jungle          Plains          Plains          Beach           Plains
 
 A little bit of everything::
+
     AlpineTreeline  AlpineTreeline  Mountains       Mountains       Valley          Mountains       Valley          Valley          Plains          Plains          Plains          Lake            Lake            Lake            Lake
     AlpineTreeline  AlpineTreeline  HighPlateau     Mountains       Mountains       AlpineTreeline  Mountains       Hills           RockyGround     Plains          Plains          Plains          Lake            Lake            Lake
     HighPeaks       HighPlateau     HighPeaks       HighPlateau     Mountains       HighPeaks       AlpineTreeline  Mountains       Plains          Jungle          Ocean           RockyGround     Jungle          Lake            Lake
