@@ -1,8 +1,7 @@
 import unittest
 
-from asciimap import util
+from asciimap import ascii, map, util
 from asciimap.const import N, S, E, W, NE, NW, SE, SW, C
-from asciimap import map
 
 
 class ASCIICharacterMapTestCase(unittest.TestCase):
@@ -56,6 +55,13 @@ class GenerateMapTestCase(unittest.TestCase):
     def test_generateTilesSmallMap(self):
         print
         result = map.GeneratedMap("tiny")
+        result.printNamedTiles()
+        print
+        result.printASCIITiles(size=ascii.large)
+        print
+        result.printASCIITiles(size=ascii.medium)
+        print
+        result.printASCIITiles(size=ascii.small)
 
 
 class MapUtilTestCase(unittest.TestCase):
