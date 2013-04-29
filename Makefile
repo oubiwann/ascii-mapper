@@ -13,6 +13,9 @@ LIB := asciimap
 VENV ?= .venv
 ACT ?= $(VENV)/bin/activate
 
+get-terrain-types:
+	@egrep '^class' asciimap/terrain.py|sed -e 's/class //'|sed -e 's/(.*//g'|tail -26
+
 $(VENV):
 	virtualenv $(VENV)
 
